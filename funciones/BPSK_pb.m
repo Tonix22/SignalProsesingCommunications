@@ -7,7 +7,7 @@ function    [filtrotrans,senalBPSK,t,senaldig] =    BPSK_pb(num_bits,srate,filt,
 %   muest_porbit    especificael numero de muestras por bit que se utilizaran en la simulacion, debe ser numero impar
 
 senaldig = round(rand(1,num_bits));
-senal       =2*(senaldig-.5)        %se genera señal binaria de valores [1,-1]
+senal       = 2*(senaldig-.5)        %se genera señal binaria de valores [1,-1]
 
 % se produce la señal con el filtro formador
 
