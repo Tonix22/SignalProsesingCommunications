@@ -25,7 +25,7 @@ num_bits_erroneos=sum(xor(senaldig,bits_detectados))
 figure; 
 subplot(2,1,1), plot(t,senal_recib); 
 hold on;
-subplot(2,1,1), stem(t,senal_muestreada,'r'); 
+subplot(2,1,1), stem(t,muestreador,'r'); 
 axis([-7*srate*muest_porbit 7*srate*muest_porbit -2.2 2.2]); 
 xlabel('Señal a la salida del filtro acoplada, y decision del muestreador'); 
 hold off; 

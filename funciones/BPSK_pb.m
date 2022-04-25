@@ -56,9 +56,9 @@ subplot(2,1,1), plot(t,senalBPSK);
 axis([-7*srate*muest_porbit 7*srate*muest_porbit -1.1 1.1]);
 xlabel('Señal BPSK generada en tiempo');
 hold on;
-subplot(2,1,2), stem(t,senaldiscretal, 'r');
+subplot(2,1,1), stem(t,senaldiscretal, 'r');
 hold off;
-subplot(2,1,1), plot(t,filtrotrans);
+subplot(2,1,2), plot(t,filtrotrans);
 axis([-7*srate*muest_porbit 7*srate*muest_porbit -1.1 1.1]);
 xlabel('Filtro de Transmisor Seleccionado');
 

@@ -13,7 +13,7 @@ num_bits=10000; %Numero de bits a transmitir
 srate=.01;      %Intervalo de muestreo
 filt='sqrt';   %Tipo de filtro transmisor, tambien puede ser cosa y rect 
 muest_porbit=5; %Numero de muestras por bit
-disp(num_bits)
+
 [filtrotrans,senalBPSK,t,senaldig]=BPSK_pb(num_bits,srate,filt,muest_porbit);
 
 %&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&  
@@ -21,7 +21,7 @@ disp(num_bits)
 %— Se toma la señal y se le suma un ruido con potencia tal que se tiene una relacion 
 % señal a ruido especificada 
 %senal_masruido=awgn(SNR_deseado_dB,senalBPSK); 
-SNR_deseado_dB = 4; 
+SNR_deseado_dB = 9; 
 senal_masruido = awgn(SNR_deseado_dB,senalBPSK);
 
 %&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&  

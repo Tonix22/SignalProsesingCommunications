@@ -10,7 +10,7 @@ function senal_masruido=awgn(SNR_deseado_dB,senalBPSK);
 % relacion sepal a ruido
 
 %Se define (a senñal digital y pasada por el modulador ) 
-SNR_deseado=exp((SNR_deseado_dB)*(1/10)*log(1/10)); 
+SNR_deseado=exp((SNR_deseado_dB)*(1/10)*log(10)); 
 var_ruido=(1/(2*SNR_deseado)); 
 ruido=sqrt(var_ruido)*randn(1,length(senalBPSK)); 
 senal_masruido=ruido+senalBPSK; 
