@@ -3,7 +3,7 @@ clear all; close all;
 num_bits=1000; %Numero de bits a transmitir 
 srate=.01;      %Intervalo de muestreo
 filt='sqrt';   %Tipo de filtro transmisor, tambien puede ser cosa y rect 
-muest_porbit=6; %Numero de muestras por bit
+muest_porbit=5; %Numero de muestras por bit
 
 %generamos la rama igual como si fuera BPSK
 [filtrotrans,senalBPSK,t,senaldig]=BPSK_pb(num_bits,srate,filt,muest_porbit);
@@ -30,8 +30,20 @@ title('QPSK modulated signal');
 SNR_deseado_dB = 3; 
 senalQPSK_ns = awgn(SNR_deseado_dB,senalQPSK);
 
-% ------------ CANAL CON RUIDO ADITIVO -------------------------- 
-Rx_data = QPSK_demod(senalQPSK_ns,freq,t,num_bits,srate,muest_porbit);
+% ------------ Coherencia -------------------------- 
+[Z_in,Z_qd] = QPSK_demod(senalQPSK_ns,freq,t,num_bits,srate,muest_porbit);
 
+% ------------ Mached filter -------------------------- 
+senal_recib_in = matched_filter(filtrotrans,Z_in);
+senal_recib_qd = matched_filter(filtrotrans,Z_qd);
 
+% ------------ PARALLEL TO SINGULAR ------------- 
+senal_recib = senal_recib_in+senal_recib_qd;
+
+%------------- DISPOSITIVO DE DECISION ------------- 
+umbral=0; 
+[num_bits_erroneos,bits_detectadosj]=decision(umbral,senal_recib,num_bits,muest_porbit,t,senaldig,srate);
+
+% ------ GRAFICACION BER TEORICO Y SIMULADO --------------
+grafica_BERySNR(SNR_deseado_dB, num_bits_erroneos, num_bits);
 

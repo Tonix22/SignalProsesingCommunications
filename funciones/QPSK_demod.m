@@ -2,10 +2,8 @@ function    [Z_in,Z_qd] =    QPSK_demod(Tx_sig,freq,t,num_bits,srate,muest_porbi
 
 Z_in = Tx_sig.*cos(2*pi*freq*t); % inphase
 Z_qd = Tx_sig.*sin(2*pi*freq*t);    % quadrature
-Z_in_f = real(ttof(Z_in));
 
-figure
-plot(Z_in_f)
+
 
 %plot(f,Z_in_f)
 
