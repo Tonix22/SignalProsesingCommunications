@@ -30,7 +30,7 @@ senaldiscretal(cero-half_len: muest_porbit : cero+half_len-muest_porbit) = senal
 
 %% Se definen los valores de los pulsos
 pulsocuadrado   = zeros(1,length(t));
-pulsocuadrado(int64(cero-((muest_porbit-1)/2)) : int64(cero+(((muest_porbit-1)/2)))) = 1;
+pulsocuadrado(int64(cero-((muest_porbit-1)/2)) : int64(cero+((muest_porbit-1/2)))) = 1;
 frcosine    =   zeros(1,length(t));
 if filt=="sqrt"
     frcosine(cero-(3*muest_porbit):cero+3*muest_porbit) = rcosine(1,muest_porbit,'sqrt');
