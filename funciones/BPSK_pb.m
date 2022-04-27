@@ -19,7 +19,8 @@ senal    = 2*(senaldig-.5);         %se genera señal binaria de valores [1,-1]
 
 % Se produce la señal con el filtro formador
 
-T = (num_bits + 10)*muest_porbit*srate; %tiempo de las muestras
+%T = (num_bits + 10)*muest_porbit*srate; %tiempo de las muestras
+T = (num_bits)*muest_porbit*srate; %tiempo de las muestras
 t = -T/2 : srate : T/2;
 
 senaldiscretal = zeros(1,length(t)); %se genera la señal con deltas centradas en Ts
@@ -35,7 +36,8 @@ frcosine    =   zeros(1,length(t));
 if filt=="sqrt"
     frcosine(cero-(3*muest_porbit):cero+3*muest_porbit) = rcosine(1,muest_porbit,'sqrt');
 else
-    frcosine(cero-(3*muest_porbit):cero+3*muest_porbit) = rcosine(1,muest_porbit);
+    frcosine = rcosdesign(0.5, num_bits, muest_porbit, 'sqrt');  % habilitado para que puyeda muestrear 1 bit por simbolo
+    %frcosine( cero-(3*muest_porbit) : cero+3*muest_porbit ) = rcosine(1, muest_porbit);
 end
 %% Elección del filtro
 if  filt=="rect"

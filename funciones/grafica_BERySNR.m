@@ -12,7 +12,7 @@ figure;
 semilogy(10*log10(SNR_teorico),prob_error); 
 SNR_deseado=exp((SNR_deseado_dB)*log(10)/10); 
 SNR_sim=SNR_deseado; 
-pber_sim=num_bits_erroneos/num_bits 
+pber_sim=num_bits_erroneos/num_bits; 
 hold on; 
 semilogy(10*log10(SNR_sim),pber_sim,'rd'); 
 xlabel('10"log10(Eb/N0)'); 

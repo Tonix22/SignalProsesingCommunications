@@ -35,9 +35,13 @@ subplot(2,1,2), stem(t,senal_muestreada,'r');
 axis([-7*srate*muest_porbit 7*srate*muest_porbit -2.2 2.2]); 
 xlabel('Señal a la salida del filtro acoplada, y valores del muestreador'); 
 hold off; 
-%figure(5); 
-%subplot(2,1,1), stem(senaldig); 
-%hold on; 
-%subplot(2,1,1), stem(.5*bits_detectados,'r'); 
-%hold off; 
+figure; 
+subplot(2,1,1), stem(senaldig); 
+axis([0 25 0 1]);
+xlabel('Señal Digital'); 
+hold on; 
+subplot(2,1,2), stem(.5*bits_detectados,'r'); 
+axis([0 25 0 .7]);
+xlabel('Bits Detected'); 
+hold off; 
 %----------FIN DE PROGRAMA decision.m ----------------- %
